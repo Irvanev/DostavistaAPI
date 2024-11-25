@@ -1,0 +1,14 @@
+type CustomerDto {
+    id: ID
+    firstName: String
+    lastName: String
+    email: String
+    phone: String
+}
+
+input CreateCustomerDto {
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String!
+}

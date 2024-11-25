@@ -1,0 +1,15 @@
+type Query {
+    findAllCouriers: [CourierDto]
+    findCourierById(id: ID!): CourierDto
+
+    findCustomerById(id: ID!): CustomerDto
+    findAllCustomers: [CustomerDto]
+}
+
+type Mutation {
+    createCustomer(customer: CreateCustomerDto!): CustomerDto
+    deleteCustomer(id: ID!): Boolean
+
+    createCourier(courier: CreateCourierDto!): CourierDto
+    deleteCourier(id: ID!): Boolean
+}

@@ -1,0 +1,33 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk21
+    container_name: jenkins-server
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - jenkins-network
+
+  jenkins-agent:
+    image: jenkins/inbound-agent
+    container_name: jenkins-agent
+    environment:
+      - JENKINS_URL=http://jenkins-server:8080
+      - JENKINS_AGENT_NAME=agent
+      - JENKINS_AGENT_WORKDIR=/home/jenkins/agent
+      - JENKINS_SECRET=e9c96d9fb16127598ef0b9fa115ea0e31a3657ee0a28f6178163bc73e3602f1a
+    volumes:
+      - agent_workdir:/home/jenkins/agent
+    depends_on:
+      - jenkins
+    networks:
+      - jenkins-network
+
+volumes:
+  jenkins_home:
+  agent_workdir:
+
+networks:
+  jenkins-network:

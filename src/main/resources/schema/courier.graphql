@@ -1,0 +1,16 @@
+type CourierDto {
+    id: ID
+    firstName: String
+    lastName: String
+    email: String
+    phone: String
+    address: String
+    requisites: String
+}
+
+input CreateCourierDto {
+    firstName: String!
+    lastName: String!
+    email: String!
+    phone: String!
+}
