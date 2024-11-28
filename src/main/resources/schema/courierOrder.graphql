@@ -1,0 +1,11 @@
+type OrderCourierDto {
+    id: ID
+    orderID: ID
+    courierID: ID
+    status: OrderStatusEnum
+}
+
+input CreateOrderCourierDto {
+    orderID: ID
+    courierID: ID
+}

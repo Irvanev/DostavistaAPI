@@ -1,0 +1,24 @@
+type OrderDto {
+    id: ID
+    price: Int
+    pickupAddress: String
+    deliveryAddress: String
+    description: String
+    weight: String
+    status: OrderStatusEnum
+}
+
+input CreateOrderDto {
+    price: Int!
+    pickupAddress: String!
+    deliveryAddress: String!
+    description: String
+    weight: String
+}
+
+enum OrderStatusEnum {
+    CREATED
+    TAKEN
+    IN_PROGRESS
+    COMPLETED
+}

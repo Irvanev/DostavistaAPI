@@ -1,0 +1,14 @@
+type FeedbackDto {
+    id: ID
+    customerID: ID
+    courierId: ID
+    rating: Int
+    comment: String
+}
+
+input CreateFeedbackDto {
+    customerID: ID!
+    courierId: ID!
+    rating: Int!
+    comment: String
+}

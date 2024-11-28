@@ -4,6 +4,15 @@ type Query {
 
     findCustomerById(id: ID!): CustomerDto
     findAllCustomers: [CustomerDto]
+
+    findFeedbackById(id: ID!): FeedbackDto
+    findAllFeedbacks: [FeedbackDto]
+
+    findOrderById(id: ID!): OrderDto
+    findAllOrders: [OrderDto]
+
+    findOrderCourierById(id: ID!): OrderCourierDto
+    findAllOrdersCourier: [OrderCourierDto]
 }
 
 type Mutation {
@@ -12,4 +21,13 @@ type Mutation {
 
     createCourier(courier: CreateCourierDto!): CourierDto
     deleteCourier(id: ID!): Boolean
+
+    createFeedback(feedback: CreateFeedbackDto!): FeedbackDto
+    deleteFeedback(id: ID!): Boolean
+
+    createOrder(order: CreateOrderDto!): OrderDto
+    deleteOrder(id: ID!): Boolean
+
+    createOrderCourier(order: CreateOrderCourierDto!): OrderCourierDto
+    deleteOrderCourier(id: ID!): Boolean
 }
