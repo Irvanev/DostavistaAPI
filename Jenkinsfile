@@ -2,19 +2,11 @@ pipeline {
     agent any  // Используем любой доступный агент
 
     environment {
-        PATH = '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/docker.sock'
         DOCKER_IMAGE = 'dostavista-image'
         CONTAINER_NAME = 'my-app-container'
     }
 
     stages {
-
-        stage('Check Docker Version') {
-            steps {
-                sh 'echo $PATH'
-                sh 'docker --version'
-            }
-        }
         // Шаг для извлечения кода из репозитория
         stage('Checkout') {
             steps {
