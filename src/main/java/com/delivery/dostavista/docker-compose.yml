@@ -9,6 +9,8 @@ services:
       - jenkins_home:/var/jenkins_home
     networks:
       - jenkins-network
+    environment:
+      - DOCKER_HOST=tcp://localhost:2375  # Устанавливаем переменную окружения для Docker-in-Docker
 
   jenkins-agent:
     image: jenkins/inbound-agent
