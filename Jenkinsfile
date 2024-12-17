@@ -43,10 +43,12 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    // Остановим и удалим контейнер, если он уже существует
+                    // Остановим и удалим существующий контейнер, если он есть
                     sh '''
-                        docker ps -q -f name=${CONTAINER_NAME} | xargs -r docker stop
-                        docker ps -q -f name=${CONTAINER_NAME} | xargs -r docker rm
+                        if [ $(docker ps -a -q -f name=${CONTAINER_NAME}) ]; then
+                            docker stop ${CONTAINER_NAME} || true
+                            docker rm ${CONTAINER_NAME} || true
+                        fi
                         docker run -d --name ${CONTAINER_NAME} -p 8080:8080 ${DOCKER_IMAGE}
                     '''
                 }
