@@ -10,6 +10,7 @@ pipeline {
 
         stage('Check Docker Version') {
             steps {
+                sh 'echo $PATH'
                 sh 'docker --version'
             }
         }
