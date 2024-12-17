@@ -7,6 +7,12 @@ pipeline {
     }
 
     stages {
+
+        stage('Check Docker Version') {
+            steps {
+                sh 'docker --version'
+            }
+        }
         // Шаг для извлечения кода из репозитория
         stage('Checkout') {
             steps {
