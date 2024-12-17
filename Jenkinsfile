@@ -1,9 +1,8 @@
 pipeline {
-    agent any  // Используем любой доступный агент
 
     agent {
             docker { image 'docker:latest' }
-        }
+    }
 
 
     environment {
