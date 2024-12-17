@@ -2,7 +2,7 @@ pipeline {
     agent any  // Используем любой доступный агент
 
     environment {
-        PATH = '/usr/local/bin:/opt/homebrew/bin:$PATH'
+        PATH = '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
         DOCKER_IMAGE = 'dostavista-image'
         CONTAINER_NAME = 'my-app-container'
     }
