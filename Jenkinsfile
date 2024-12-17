@@ -1,6 +1,11 @@
 pipeline {
     agent any  // Используем любой доступный агент
 
+    agent {
+            docker { image 'docker:latest' }
+        }
+
+
     environment {
         DOCKER_IMAGE = 'dostavista-image'
         CONTAINER_NAME = 'my-app-container'
